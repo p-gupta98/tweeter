@@ -7,13 +7,14 @@
   margin: 0 auto;
 } */
 
-.tweet-text-header {
+/* .tweet-text-header {
   border-bottom: 4px solid #545149;
-}
+} */
 
 textarea {
   background-color: #f4f1ec;
   border: 0px;
+  border-bottom: 4px solid #545149;
   width: 100%;
 }
 
