@@ -32,4 +32,9 @@ textarea {
 .counter {
   font-family: 'Bungee', sans-serif;
   color: #545149;
+  /* color: ; */
+}
+
+.red-char {
+  color: red;
 }

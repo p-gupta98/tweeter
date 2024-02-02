@@ -19,11 +19,22 @@ $(document).ready(function() {
   // --- our code goes here ---
 
   $( "#tweet-text" ).on( "keypress", function() {
-    const tweetTextCount = charCounter($( "#tweet-text" ).val());
+    const tweetText = $( "#tweet-text" ).val();
+    const tweetTextCount = charCounter(tweetText);
 
-   $(".counter").val(140 - tweetTextCount)
+    console.log(tweetTextCount);
+
+    $(".counter").val(140 - tweetTextCount);
+
+    console.log($("output"));
+
+    if (tweetTextCount > 140) {
+      console.log('output is working!');
+      $("output").addClass('red-char')
+    } else {
+      console.log('output is working else!');
+      $("output").removeClass('red-char')
+    }  
   } );
-
-  
 
 });
