@@ -3,13 +3,10 @@
   flex-direction: column;
 }
 
-/* section form {
-  margin: 0 auto;
-} */
-
-/* .tweet-text-header {
-  border-bottom: 4px solid #545149;
-} */
+.tweet-text-header > label{
+  color: #545149;
+  font-weight: 600;
+}
 
 textarea {
   background-color: #f4f1ec;
