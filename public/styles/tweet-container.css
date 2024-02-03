@@ -10,16 +10,25 @@
 
 .tweet footer {
   border-top: 4px solid #545149;
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .tweet-icons {
   color: #4056A1;
-  display: flex;
-  justify-content: flex-end;
-  padding: 0 10px 20px;
 }
 
 .tweet-icons i {
   padding: 5px;
+}
+
+/* hover effects */
+
+.tweet-container:hover {
+  box-shadow:10px 10px 3px #545149;
+}
+
+.tweet-icons i:hover {
+  color: goldenrod;
 }
