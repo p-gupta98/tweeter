@@ -98,26 +98,40 @@ $(document).ready(() => {
 
   $newTweetForm.on('submit', (event) => {
     event.preventDefault();
-   
-    //serialize the form data
-    const data = $newTweetForm.serialize();
-    console.log(data);
+
+    //Form validation
+    const tweetText = $('#tweet-text').val();
+
+    if (!tweetText) {
+      alert('Your tweet is empty');
+    } else if ((tweetText.length + 1) > 140) {
+      alert('Your tweet is too long');
+    } else {
 
     
+   
+      //serialize the form data
+      const data = $newTweetForm.serialize();
+      console.log(data);
 
-    //Post the data
-    $.ajax({
-      method: "POST",
-      url: "/tweets",
-      data: data,
-      success: (response) => {
-        console.log(response);
-        loadTweets();
-      },
-      error: (error) => {
-        // Code to execute on error
-      }
-    });
+      
+
+      //Post the data
+      $.ajax({
+        method: "POST",
+        url: "/tweets",
+        data: data,
+        success: (response) => {
+          console.log(response);
+          $('#tweet-text').val(''); // Clear the input field
+          loadTweets();
+        },
+        error: (error) => {
+          // Code to execute on error
+        }
+      });
+
+    };
 
   });
 
