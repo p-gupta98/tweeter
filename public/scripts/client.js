@@ -76,6 +76,7 @@ $(document).ready(() => {
   };
 
   const renderTweet = (tweets) => {
+    $tweetContainer.empty();
     for (const tweet of tweets) {
       const $tweet = createTweet(tweet);
       $tweetContainer.prepend($tweet);
@@ -93,25 +94,31 @@ $(document).ready(() => {
     });
   };
 
-  loadTweets();
+  
 
   $newTweetForm.on('submit', (event) => {
     event.preventDefault();
    
+    //serialize the form data
     const data = $newTweetForm.serialize();
+    console.log(data);
+
+    
+
+    //Post the data
+    $.ajax({
+      method: "POST",
+      url: "/tweets",
+      data: data,
+      success: (response) => {
+        console.log(response);
+        loadTweets();
+      },
+      error: (error) => {
+        // Code to execute on error
+      }
+    });
 
   });
-
-  // $.ajax({
-  //   type: "POST",
-  //   url: "/tweets",
-  //   data: serializedData,
-  //   success: function(response) {
-  //     // Code to execute upon success
-  //   },
-  //   error: function(error) {
-  //     // Code to execute on error
-  //   }
-  // });
 
 });
