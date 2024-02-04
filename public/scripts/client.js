@@ -7,6 +7,7 @@
 $(document).ready(() => {
 
   const $tweetContainer = $('#tweet-container');
+  const $newTweetForm = $('#new-tweet-form');
 
   const tweets = [ 
     {
@@ -93,5 +94,24 @@ $(document).ready(() => {
   };
 
   loadTweets();
+
+  $newTweetForm.on('submit', (event) => {
+    event.preventDefault();
+   
+    const data = $newTweetForm.serialize();
+
+  });
+
+  // $.ajax({
+  //   type: "POST",
+  //   url: "/tweets",
+  //   data: serializedData,
+  //   success: function(response) {
+  //     // Code to execute upon success
+  //   },
+  //   error: function(error) {
+  //     // Code to execute on error
+  //   }
+  // });
 
 });
