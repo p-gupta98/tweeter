@@ -8,6 +8,9 @@ $(document).ready(() => {
 
   const $tweetContainer = $('#tweet-container');
   const $newTweetForm = $('#new-tweet-form');
+  
+  const $error = $('#error');
+  const $errorText = $('#error-text');
 
   const tweets = [ 
     {
@@ -94,25 +97,40 @@ $(document).ready(() => {
     });
   };
 
-  
+  $error.hide();
 
   $newTweetForm.on('submit', (event) => {
     event.preventDefault();
 
     //Form validation
-    const tweetText = $('#tweet-text').val();
-
-    if (!tweetText) {
-      alert('Your tweet is empty');
-    } else if ((tweetText.length + 1) > 140) {
-      alert('Your tweet is too long');
-    } else {
-
+    const $tweetText = $('#tweet-text').val();
     
-   
+    // const $errorText = $('')
+
+    if (!$tweetText) {
+      $error.show();
+      $errorText.text('Your tweet is empty');
+
+
+      setTimeout(() => {
+        $error.hide();
+    }, 3000); // Hide the error message after 3 seconds
+
+
+    } else if (($tweetText.length + 1) > 140) {
+      $error.show();
+      $errorText.text('Your tweet is too long');
+
+
+      setTimeout(() => {
+        $error.hide();
+    }, 3000); // Hide the error message after 3 seconds
+
+
+    } else  {
       //serialize the form data
       const data = $newTweetForm.serialize();
-      console.log(data);
+      console.log('hello form');
 
       
 
@@ -134,5 +152,8 @@ $(document).ready(() => {
     };
 
   });
+
+  $error.hide();
+  $errorText.text('');
 
 });
