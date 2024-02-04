@@ -16,13 +16,35 @@ $(document).ready(() => {
   //   }
   // });
 
-  const $tweet = $(`
+  const tweetdb = {
+    user: {
+      name: "Newton",
+      avatars: "https://i.imgur.com/73hZDYK.png",
+      handle: "@SirIsaac"
+    },
+    content: {
+      text: "If I have seen further it is by standing on the shoulders of giants"
+    },
+    created_at: 1706825000175
+  }
+
+  const createTweet = () => {
+    const $tweet = $(`
 
     <article class="tweet">
       <header>
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text
-        </p>
+        <div class="user">
+          <div class="profile">
+            <img src=${tweetdb.user.avatars}>
+            <h3>${tweetdb.user.name}</h3>
+          </div>
+          <h3>${tweetdb.user.handle}</h3>
+        </div>
+        <div>
+          <p>
+          ${tweetdb.content.text}
+          </p>
+        </div>
       </header>
             
       <footer>
@@ -38,9 +60,11 @@ $(document).ready(() => {
         </div>
       </footer>
     </article>
-
   `);
-
+    return $tweet;
+  };
+  
+  const $tweet = createTweet();
   const $tweetContainer = $('#tweet-container');
 
   $tweetContainer.prepend($tweet);
