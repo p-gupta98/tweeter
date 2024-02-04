@@ -22,17 +22,17 @@ $(document).ready(function() {
     const tweetText = $( "#tweet-text" ).val();
     const tweetTextCount = charCounter(tweetText);
 
-    console.log(tweetTextCount);
+    // console.log(tweetTextCount);
 
     $(".counter").val(140 - tweetTextCount);
 
-    console.log($("output"));
+    // console.log($("output"));
 
     if (tweetTextCount > 140) {
-      console.log('output is working!');
+      // console.log('output is working!');
       $("output").addClass('red-char')
     } else {
-      console.log('output is working else!');
+      // console.log('output is working else!');
       $("output").removeClass('red-char')
     }  
   } );
