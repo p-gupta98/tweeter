@@ -6,16 +6,6 @@
 
 $(document).ready(() => {
 
-  console.log('hello!');
-
-  // $.ajax({
-  //   url: '/tweets',
-  //   method: 'GET',
-  //   success: (response) => {
-  //     console.log(response);
-  //   }
-  // });
-
   const $tweetContainer = $('#tweet-container');
 
   const tweets = [ 
@@ -34,6 +24,17 @@ $(document).ready(() => {
     {
       user: {
         name: "Descartes",
+        avatars: "https://i.imgur.com/nlhLi3I.png",
+        handle: "@rd" },
+      content: {
+        text: "Je pense , donc je suis"
+      },
+      created_at: 1461113959088
+    },
+
+    {
+      user: {
+        name: "Einstein",
         avatars: "https://i.imgur.com/nlhLi3I.png",
         handle: "@rd" },
       content: {
@@ -79,12 +80,18 @@ $(document).ready(() => {
       $tweetContainer.prepend($tweet);
     }
   };
-  
-  renderTweet(tweets);
 
-  
+  const loadTweets = () => {
+    $.ajax({
+      url: '/tweets',
+      method: 'GET',
+      success: (tweets) => {
+        console.log(tweets);
+        renderTweet(tweets);
+      }
+    });
+  };
 
-  
-  console.log('$tweetContainer', $tweetContainer);
+  loadTweets();
 
 });
