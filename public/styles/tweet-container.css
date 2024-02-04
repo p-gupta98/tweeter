@@ -9,6 +9,19 @@
   margin-top: 20px;
 }
 
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 2em; */
+}
+
+.user {
+  display: flex;
+  justify-content: space-between;
+  /* height: 3em; */
+}
+
 .tweet footer {
   border-top: 4px solid #545149;
   display: flex;
