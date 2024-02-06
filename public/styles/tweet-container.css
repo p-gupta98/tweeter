@@ -46,3 +46,47 @@
 .tweet-icons i:hover {
   color: goldenrod;
 }
+
+/* Desktop styles */
+@media only screen and (min-width: 1024px) {
+
+  .container {
+    max-width: 1300px;
+    /* font-size: 16px; */
+    margin: 0 auto;
+  }
+  .nav {
+    position: fixed;
+  }
+
+  .header-spacer {
+    height: 15rem;
+  }
+
+  /* .spacer {
+    height: 2rem;
+  } */
+  .page-header {
+    width: 30%;
+    float: left;
+    height: 350px;
+    margin-left: 20px;
+    /* margin-right: 10px;  */
+  }
+  .page-header img {
+    width: 200px;
+  }
+  .new-tweet {
+    width: 70%;
+    padding-left: 80px;
+    float: right; 
+    /* margin-top: 10rem; */
+    
+  }
+  
+  #tweet-container {
+    width: 70%;
+    padding-left: 40px;
+    float: right; 
+  }
+}
