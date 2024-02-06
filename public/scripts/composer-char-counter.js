@@ -3,22 +3,11 @@ const charCounter = function (text) {
   return count + 1;
 };
 
-// const maxCount = function (text) {
-//   // console.log("text", text);
-//   const max = 140;
-//   const count = charCounter(text);
-
-//   if (count < max) {
-//     console.log('true');
-//   } 
-
-//   console.log(false);
-// };
 
 $(document).ready(function() {
   // --- our code goes here ---
 
-  $( "#tweet-text" ).on( "keypress", function() {
+  $( "#tweet-text" ).on( " input keypress", function() {
     const tweetText = $( "#tweet-text" ).val();
     const tweetTextCount = charCounter(tweetText);
 

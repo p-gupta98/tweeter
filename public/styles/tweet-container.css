@@ -71,7 +71,6 @@
     float: left;
     height: 350px;
     margin-left: 20px;
-    /* margin-right: 10px;  */
   }
   .page-header img {
     width: 200px;
@@ -80,8 +79,6 @@
     width: 70%;
     padding-left: 80px;
     float: right; 
-    /* margin-top: 10rem; */
-    
   }
   
   #tweet-container {

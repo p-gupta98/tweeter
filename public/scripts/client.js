@@ -15,9 +15,6 @@ $(document).ready(() => {
   const $error = $('#error');
   const $errorText = $('#error-text');
 
-  //timeago
-  //const readableTime = timeago.format(createdAt);
-
   //Cross-site scripting
   const escape = function (str) {
     let div = document.createElement("div");
@@ -97,7 +94,7 @@ $(document).ready(() => {
     
     for (const tweet of tweets) {
       const $tweet = createTweet(tweet);
-      // $tweetTime.text(format(tweet.created_at));
+
       $tweetContainer.prepend($tweet);
     }
   };
@@ -121,7 +118,6 @@ $(document).ready(() => {
     //Form validation
     const $tweetText = $('#tweet-text').val();
     
-    // const $errorText = $('')
 
     if (!$tweetText) {
       $error.show();
@@ -161,7 +157,7 @@ $(document).ready(() => {
           loadTweets();
         },
         error: (error) => {
-          // Code to execute on error
+          console.log(error);
         }
       });
 
