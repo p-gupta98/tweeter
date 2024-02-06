@@ -4,13 +4,26 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+
+
 $(document).ready(() => {
 
   const $tweetContainer = $('#tweet-container');
   const $newTweetForm = $('#new-tweet-form');
   
+  
   const $error = $('#error');
   const $errorText = $('#error-text');
+
+  //timeago
+  //const readableTime = timeago.format(createdAt);
+
+  //Cross-site scripting
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
 
   const tweets = [ 
     {
@@ -55,17 +68,17 @@ $(document).ready(() => {
       <header>
         <div class="user">
           <div class="profile">
-            <img src=${tweet.user.avatars}>
-            <h3>${tweet.user.name}</h3>
+            <img src=${escape(tweet.user.avatars)}>
+            <h3>${escape(tweet.user.name)}</h3>
           </div>
-          <h3>${tweet.user.handle}</h3>
+          <h3>${escape(tweet.user.handle)}</h3>
         </div>
         <div>
-          <p>${tweet.content.text}</p>
+          <p>${escape(tweet.content.text)}</p>
         </div>
       </header>
       <footer>
-        <div> <h4>10 days ago</h4></div>
+      <div class="timeago" >${timeago.format(tweet.created_at)}</div>
               
         <div class="tweet-icons">
           <i class="fa-solid fa-flag"></i>
@@ -80,8 +93,11 @@ $(document).ready(() => {
 
   const renderTweet = (tweets) => {
     $tweetContainer.empty();
+
+    
     for (const tweet of tweets) {
       const $tweet = createTweet(tweet);
+      // $tweetTime.text(format(tweet.created_at));
       $tweetContainer.prepend($tweet);
     }
   };
