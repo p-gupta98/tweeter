@@ -1,6 +1,6 @@
 const charCounter = function (text) {
   const count = text.length;
-  return count + 1;
+  return count;
 };
 
 
@@ -13,9 +13,9 @@ $(document).ready(function() {
 
     // console.log(tweetTextCount);
 
-    $(".counter").val(140 - tweetTextCount);
+    $(".counter").text(140 - tweetTextCount);
 
-    // console.log($("output"));
+    //Change the counter to red
 
     if (tweetTextCount > 140) {
       // console.log('output is working!');
@@ -26,4 +26,8 @@ $(document).ready(function() {
     }  
   } );
 
+
+  
+
 });
+

@@ -112,6 +112,9 @@ $(document).ready(() => {
 
   $error.hide();
 
+  //Ensure the tweets already in the databsse load as soon as the page loads
+  loadTweets();
+
   $newTweetForm.on('submit', (event) => {
     event.preventDefault();
 
@@ -154,6 +157,7 @@ $(document).ready(() => {
         success: (response) => {
           console.log(response);
           $('#tweet-text').val(''); // Clear the input field
+          $(".counter").text(140); //reset the tweet counter
           loadTweets();
         },
         error: (error) => {
@@ -167,5 +171,7 @@ $(document).ready(() => {
 
   $error.hide();
   $errorText.text('');
+
+  
 
 });
