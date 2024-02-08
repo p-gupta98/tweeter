@@ -1,6 +1,6 @@
 const charCounter = function (text) {
   const count = text.length;
-  return count;
+  return count + 1;
 };
 
 $(document).ready(function () {
